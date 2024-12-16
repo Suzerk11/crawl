@@ -106,4 +106,4 @@ SELENIUM_DRIVER_ARGUMENTS = ["--headless"]  # '--headless' if using chrome inste
 # Milvus settings
 MILVUS_CLUSTER_ENDPOINT = "https://in03-5a578d4fc3763e1.serverless.gcp-us-west1.cloud.zilliz.com"
 TOKEN = "[TOKEN_REMOVED]"
-MILVUS_COLLECTION_NAME = "experts"
+MILVUS_COLLECTION_NAME = "experts_analysis"

@@ -11,7 +11,7 @@ from sentence_transformers import SentenceTransformer
 import logging
 
 class CrawlIntroPipeline:
-    def __init__(self, cluster_endpoint, token, collection_name="experts"):
+    def __init__(self, cluster_endpoint, token, collection_name="experts_analysis"):
         self.cluster_endpoint = cluster_endpoint
         self.token = token
         self.collection_name = collection_name
@@ -36,10 +36,13 @@ class CrawlIntroPipeline:
             FieldSchema(name = "first_name", dtype = DataType.VARCHAR, max_length = 128),
             FieldSchema(name = "last_name", dtype = DataType.VARCHAR, max_length = 128),
             FieldSchema(name = "avatar", dtype = DataType.VARCHAR, max_length = 512),
-            FieldSchema(name="title", dtype=DataType.VARCHAR, max_length=512),
-            FieldSchema(name="description", dtype=DataType.VARCHAR, max_length=4096),
-            FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=384),  # 向量维度
-            FieldSchema(name = 'short_description', dtype = DataType.VARCHAR, max_length = 512),
+            FieldSchema(name="title", dtype=DataType.VARCHAR, max_length=512,
+                        enable_analyzer=True, enable_match=True),
+            FieldSchema(name="description", dtype=DataType.VARCHAR, max_length=4096,
+                        enable_analyzer=True, enable_match=True),
+            FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=384),
+            FieldSchema(name = 'short_description', dtype = DataType.VARCHAR, max_length = 512,
+            enable_analyzer=True, enable_match=True),
             FieldSchema(name = 'instagram', dtype = DataType.VARCHAR, max_length = 512),
             FieldSchema(name = 'twitter', dtype = DataType.VARCHAR, max_length = 512),
             FieldSchema(name = 'linkedin', dtype = DataType.VARCHAR, max_length = 512),

@@ -46,8 +46,8 @@ class IntroSpider(scrapy.Spider):
         for expert in experts:
             item = CrawlIntroItem()
             item['id'] = expert.get('Id', '')
-            item['first_name'] = expert.get('FirstName', '').strip()
-            item['last_name'] = expert.get('LastName', '').strip()
+            item['first_name'] = expert.get('FirstName', '').lower().strip()
+            item['last_name'] = expert.get('LastName', '').lower().strip()
             item['avatar'] = expert.get('Avatar', '')
             item['title'] = expert.get('Title', '').strip()
             item['description'] = expert.get('Description', '').strip()
