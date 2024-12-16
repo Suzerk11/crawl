@@ -165,7 +165,7 @@ function displayResults(results) {
 function createRows(results, tbody) {
     results.forEach(item => {
         const row = document.createElement('tr');
-        let fullName = `${item.first_name.charAt(0).toUpperCase()}${item.first_name.slice(1)} ${item.last_name.charAt(0).toUpperCase()}${item.last_name.slice(1)}`;
+        let fullName = `${convertString(item.first_name)} ${convertString(item.last_name)}`;
 
         fields.forEach(field => {
             if (!filter_fields.includes(field)) {
@@ -194,4 +194,8 @@ function createRows(results, tbody) {
         });
         tbody.appendChild(row);
     });
+}
+
+function convertString(str) {
+    return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 }

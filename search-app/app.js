@@ -21,9 +21,8 @@ app.get('/intro', async (req, res) => {
     const field = req.query.field;
     const limit = req.query.limit;
     const offset = req.query.offset;
-    console.log(query, field, limit, offset)
-    let results;
 
+    let results;
     if (query && field) {
         results = await searchDatabase(query, field, offset, limit);
     } else {
